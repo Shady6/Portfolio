@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "outDir": "scripts",
+        "rootDir": "typescript",
+        "watch": true,
+        "lib": ["dom", "es2017"]
+    },
+}
