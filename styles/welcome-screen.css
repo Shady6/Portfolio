@@ -16,6 +16,11 @@
 .border-right-1{
     border-right: 1px solid rgba(255, 255, 255, 0.4);
 }
+
+canvas{
+    position: absolute;
+    z-index: -1;
+}
 @media only screen and (max-width: 1300px) {
   
     #welcome-screen  h1{

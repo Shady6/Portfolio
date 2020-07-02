@@ -69,4 +69,4 @@ var flattenOutChildrenArray = function (childrenArray) {
     }
     return flatArray;
 };
-//# sourceMappingURL=welcome_screen.js.map
+//# sourceMappingURL=welcome_screen_write.js.map
