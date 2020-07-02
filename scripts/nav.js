@@ -95,3 +95,4 @@ var uncolorLinks = function () {
 var colorLink = function (navLinkText) {
     navLinkText.addClass("orange");
 };
+//# sourceMappingURL=nav.js.map
