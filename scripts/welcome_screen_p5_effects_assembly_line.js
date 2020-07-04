@@ -18,10 +18,14 @@ var insideWallColor = 25;
 var assemblyLineColor = 255;
 var roofColor = 76;
 var font;
-var fontSize = 40;
+var fontSize = 50;
+var textXOffset = 0;
+var frontEndWords = ["JS", "UI", "UX", "Client", "Css", "Ajax"];
+var backEndWords = ["API", "Server", "REST", "SQL"];
+var wordToWordOffset = 30;
 var assemlbySegmentMoveOffset = 0;
 function preload() {
-    font = loadFont("../assets/arial.ttf");
+    font = loadFont("../assets/Arial.ttf");
 }
 function windowResized() {
     setCanvasWidthAndHeight();
@@ -29,6 +33,7 @@ function windowResized() {
     resizeCanvas(cnvWidth, cnvHeight);
 }
 function setup() {
+    setTextCharacteristics();
     setCanvasWidthAndHeight();
     var canvas = createCanvas(cnvWidth, cnvHeight);
     canvas.parent("welcome-screen");
@@ -42,16 +47,42 @@ var setTextCharacteristics = function () {
 };
 function draw() {
     clear();
-    noFill();
-    stroke(assemblyLineColor);
-    text("halo", 160, 160);
-    drawAssembyLine();
-    drawMovingSegmentsAssembly(assemlbySegmentMoveOffset);
-    fill(wallColor);
-    stroke(wallStrokeColor);
-    drawAssemblyRooms();
-    handleAssemblySegmentMoveOffset();
+    // noFill();
+    // stroke(assemblyLineColor);
+    // drawAssembyLine();
+    // drawMovingSegmentsAssembly(assemlbySegmentMoveOffset);
+    // drawWords(textXOffset);
+    // fill(wallColor);
+    // stroke(wallStrokeColor);
+    // drawAssemblyRooms();
+    // handleAssemblySegmentMoveOffset();
+    // handleAssemblyWordMoveOffset();
 }
+var drawWords = function (textXOffset) {
+    noStroke();
+    var prevWordOffset = 0;
+    frontEndWords.forEach(function (word, i) {
+        prevWordOffset += textWidth(word) + wordToWordOffset;
+        drawWord(word, textXOffset - prevWordOffset, true);
+    });
+};
+var drawWord = function (textToWrite, offset, leftAssemblySideWord) {
+    if (leftAssemblySideWord && (offset >= (xEnd - xStart - assemblyRoomWidth) / 2 || offset <= 0))
+        noFill();
+    else if (leftAssemblySideWord)
+        fill(255);
+    if (!leftAssemblySideWord &&
+        (offset >= xEnd - xStart || offset < (xEnd - xStart) / 2))
+        noFill();
+    else if (!leftAssemblySideWord)
+        fill(255);
+    text(textToWrite, xStart + offset, yEnd);
+};
+var handleAssemblyWordMoveOffset = function () {
+    textXOffset += assemblySegmentMoveSpeed;
+    if (textXOffset >= (xEnd - xStart) * 2)
+        textXOffset = 0;
+};
 var drawAssemblyRooms = function () {
     drawAssemblyRoom(0, false);
     drawAssemblyRoom((xEnd - xStart - assemblyRoomWidth) / 2, true);
@@ -75,6 +106,7 @@ var drawAssemblyRoom = function (xOffset, noFillHoleWall) {
     // hole wall
     quad(xStart + xOffset, yEnd, xStart + xOffset + cos(perspectiveAngle) * assemblyRoomHeight, yEnd + -sin(perspectiveAngle) * assemblyRoomHeight, xStart + xOffset + cos(perspectiveAngle) * assemblyRoomHeight, yStart + -sin(perspectiveAngle) * assemblyRoomHeight, xStart + xOffset, yStart);
     fill(roofColor);
+    // roof
     rect(xStart + xOffset + cos(perspectiveAngle) * assemblyRoomHeight, yStart + -sin(perspectiveAngle) * assemblyRoomHeight, assemblyRoomWidth, assemblyLineHeight);
 };
 var drawAssembyLine = function () {
@@ -103,4 +135,4 @@ var setCanvasWidthAndHeight = function () {
     cnvWidth = $("#welcome-screen").outerWidth();
     cnvHeight = $("#welcome-screen").outerHeight();
 };
-//# sourceMappingURL=welcome_screen_p5_effects.js.map
+//# sourceMappingURL=welcome_screen_p5_effects_assembly_line.js.map

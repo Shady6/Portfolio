@@ -3,7 +3,7 @@ import { getViewportHeight } from "./window_utils.js";
 const welcomeText =
   "Hello,_ my name is (Mikołaj Piekutowski)_ * I'm a (full stack developer.)";
 
-const timeToWriteCharacter = 100;
+const timeToWriteCharacter = 50;
 const pauseTime = 300;
 
 $(document).ready(() => {

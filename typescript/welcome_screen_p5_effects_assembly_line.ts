@@ -24,13 +24,18 @@ const insideWallColor = 25;
 const assemblyLineColor = 255;
 const roofColor = 76;
 
-let font : Font;
-let fontSize = 40;
+let font: Font;
+let fontSize = 50;
+
+let textXOffset = 0;
+const frontEndWords = ["JS", "UI", "UX", "Client", "Css", "Ajax"];
+const backEndWords = ["API", "Server", "REST", "SQL"];
+const wordToWordOffset = 30;
 
 let assemlbySegmentMoveOffset = 0;
 
-function preload(){
-    font = loadFont("../assets/arial.ttf");
+function preload() {
+  font = loadFont("../assets/Arial.ttf");
 }
 
 function windowResized() {
@@ -40,6 +45,7 @@ function windowResized() {
 }
 
 function setup() {
+  setTextCharacteristics();
   setCanvasWidthAndHeight();
   const canvas = createCanvas(cnvWidth, cnvHeight);
   canvas.parent("welcome-screen");
@@ -48,27 +54,61 @@ function setup() {
   setXYStartEnd();
 }
 
-const setTextCharacteristics = ():void => {
-    textFont(font);
-    textSize(fontSize);
-}
+const setTextCharacteristics = (): void => {
+  textFont(font);
+  textSize(fontSize);
+};
 
 function draw() {
   clear();
-  noFill();
-  stroke(assemblyLineColor);
+  // noFill();
+  // stroke(assemblyLineColor);
 
-  text("halo", 160, 160);
+  // drawAssembyLine();
+  // drawMovingSegmentsAssembly(assemlbySegmentMoveOffset);
+  // drawWords(textXOffset);
 
-  drawAssembyLine();
-  drawMovingSegmentsAssembly(assemlbySegmentMoveOffset);
+  // fill(wallColor);
+  // stroke(wallStrokeColor);
+  // drawAssemblyRooms();
 
-  fill(wallColor);
-  stroke(wallStrokeColor);
-  drawAssemblyRooms();
-
-  handleAssemblySegmentMoveOffset();
+  // handleAssemblySegmentMoveOffset();
+  // handleAssemblyWordMoveOffset();
 }
+
+const drawWords = (textXOffset: number) => {
+  noStroke();
+  let prevWordOffset = 0;
+  frontEndWords.forEach((word, i) => {
+    prevWordOffset += textWidth(word) + wordToWordOffset;
+    drawWord(word, textXOffset - prevWordOffset , true);
+  })
+};
+
+const drawWord = (
+  textToWrite: string,
+  offset: number,
+  leftAssemblySideWord: boolean
+): void => {
+  if (leftAssemblySideWord && (offset >= (xEnd - xStart - assemblyRoomWidth) / 2 || offset  <= 0))
+    noFill();
+  else if (leftAssemblySideWord) fill(255);
+
+  if (
+    !leftAssemblySideWord &&
+    (offset >= xEnd - xStart || offset < (xEnd - xStart) / 2)
+  )
+  noFill();
+  else if (!leftAssemblySideWord) fill(255);
+
+  text(textToWrite, xStart + offset, yEnd);
+};
+
+const handleAssemblyWordMoveOffset = (): void => {
+  textXOffset += assemblySegmentMoveSpeed;
+
+  if (textXOffset >= (xEnd - xStart) * 2) textXOffset = 0;
+};
 
 const drawAssemblyRooms = () => {
   drawAssemblyRoom(0, false);
@@ -111,8 +151,7 @@ const drawAssemblyRoom = (xOffset: number, noFillHoleWall: boolean) => {
     yEnd + -sin(perspectiveAngle) * assemblyRoomHeight
   );
 
-  if (noFillHoleWall)
-    noFill();
+  if (noFillHoleWall) noFill();
 
   // hole wall
   quad(
@@ -127,6 +166,7 @@ const drawAssemblyRoom = (xOffset: number, noFillHoleWall: boolean) => {
   );
 
   fill(roofColor);
+  // roof
   rect(
     xStart + xOffset + cos(perspectiveAngle) * assemblyRoomHeight,
     yStart + -sin(perspectiveAngle) * assemblyRoomHeight,

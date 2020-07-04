@@ -1,6 +1,6 @@
 import { getViewportHeight } from "./window_utils.js";
 var welcomeText = "Hello,_ my name is (Mikołaj Piekutowski)_ * I'm a (full stack developer.)";
-var timeToWriteCharacter = 100;
+var timeToWriteCharacter = 50;
 var pauseTime = 300;
 $(document).ready(function () {
     setHeightOfWelcomeScreenDiv();
