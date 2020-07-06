@@ -32,7 +32,7 @@ const setEventListeners = (): void => {
   });
 
   $(".nav-link-text").on("click", (e) => {
-    handleNavLinkClick(e);
+    handleNavLinkClick($(e.target));
   });
 
   $(window).resize(() => {
@@ -49,17 +49,17 @@ const handleResize = (): void => {
   prevScreenWidth = getViewportWidth();
 };
 
-const handleNavLinkClick = (e: JQuery.ClickEvent): void => {
-  currentlySelectedLink = $(e.target);
+const handleNavLinkClick = (clickedElement: JQuery<HTMLElement>): void => {
+  currentlySelectedLink = clickedElement;
 
   if (!isCurrentViewportMedium()) {
     underscore.addClass("transition-ease-out-all");
     underscore.removeClass("transition-ease-out-width");
-    moveUnderscoreWithEffects(e);
+    moveUnderscoreWithEffects(clickedElement);
   } else {
     underscore.removeClass("transition-ease-out-all");
     underscore.addClass("transition-ease-out-width");
-    moveUnderscoreWithEffectsMobile(e);
+    moveUnderscoreWithEffectsMobile(clickedElement);
   }
 };
 
@@ -80,22 +80,22 @@ const placeUnderscoreWithEffects = (): void => {
   }, underscoreTransitionTime);
 };
 
-const moveUnderscoreWithEffects = (e: JQuery.ClickEvent): void => {
+const moveUnderscoreWithEffects = (clickedElement: JQuery<HTMLElement>): void => {
   uncolorLinks();
-  colorLink($(e.target));
+  colorLink(clickedElement);
 
-  placeUnderscore($(e.target));
-  wiggleUnderscore($(e.target));
+  placeUnderscore(clickedElement);
+  wiggleUnderscore(clickedElement);
 };
 
-const moveUnderscoreWithEffectsMobile = (e: JQuery.ClickEvent): void => {
+const moveUnderscoreWithEffectsMobile = (clickedElement: JQuery<HTMLElement>): void => {
   uncolorLinks();
-  colorLink($(e.target));
+  colorLink(clickedElement);
 
   underscore.css("width", 0);
   setTimeout(() => {
-    placeUnderscore($(e.target));
-    setUnderscoreWidthEqualToRefElement($(e.target));
+    placeUnderscore(clickedElement);
+    setUnderscoreWidthEqualToRefElement(clickedElement);
   }, underscoreTransitionTimeMobile);
 };
 

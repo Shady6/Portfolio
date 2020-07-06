@@ -19,7 +19,7 @@ var setEventListeners = function () {
         placeUnderscoreWithEffects();
     });
     $(".nav-link-text").on("click", function (e) {
-        handleNavLinkClick(e);
+        handleNavLinkClick($(e.target));
     });
     $(window).resize(function () {
         handleResize();
@@ -30,17 +30,17 @@ var handleResize = function () {
         placeUnderscoreWithEffects();
     prevScreenWidth = getViewportWidth();
 };
-var handleNavLinkClick = function (e) {
-    currentlySelectedLink = $(e.target);
+var handleNavLinkClick = function (clickedElement) {
+    currentlySelectedLink = clickedElement;
     if (!isCurrentViewportMedium()) {
         underscore.addClass("transition-ease-out-all");
         underscore.removeClass("transition-ease-out-width");
-        moveUnderscoreWithEffects(e);
+        moveUnderscoreWithEffects(clickedElement);
     }
     else {
         underscore.removeClass("transition-ease-out-all");
         underscore.addClass("transition-ease-out-width");
-        moveUnderscoreWithEffectsMobile(e);
+        moveUnderscoreWithEffectsMobile(clickedElement);
     }
 };
 var placeUnderscoreWithEffects = function () {
@@ -57,19 +57,19 @@ var placeUnderscoreWithEffects = function () {
         colorLink(navLink);
     }, underscoreTransitionTime);
 };
-var moveUnderscoreWithEffects = function (e) {
+var moveUnderscoreWithEffects = function (clickedElement) {
     uncolorLinks();
-    colorLink($(e.target));
-    placeUnderscore($(e.target));
-    wiggleUnderscore($(e.target));
+    colorLink(clickedElement);
+    placeUnderscore(clickedElement);
+    wiggleUnderscore(clickedElement);
 };
-var moveUnderscoreWithEffectsMobile = function (e) {
+var moveUnderscoreWithEffectsMobile = function (clickedElement) {
     uncolorLinks();
-    colorLink($(e.target));
+    colorLink(clickedElement);
     underscore.css("width", 0);
     setTimeout(function () {
-        placeUnderscore($(e.target));
-        setUnderscoreWidthEqualToRefElement($(e.target));
+        placeUnderscore(clickedElement);
+        setUnderscoreWidthEqualToRefElement(clickedElement);
     }, underscoreTransitionTimeMobile);
 };
 var setUnderscore = function () {
