@@ -135,4 +135,3 @@ var setCanvasWidthAndHeight = function () {
     cnvWidth = $("#welcome-screen").outerWidth();
     cnvHeight = $("#welcome-screen").outerHeight();
 };
-//# sourceMappingURL=welcome_screen_p5_effects_assembly_line.js.map

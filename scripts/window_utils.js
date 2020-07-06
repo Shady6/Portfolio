@@ -11,4 +11,3 @@ export var isCurrentViewportMedium = function () {
 export var isViewportMedium = function (viewportWidth) {
     return viewportWidth < largeBreakpoint;
 };
-//# sourceMappingURL=window_utils.js.map

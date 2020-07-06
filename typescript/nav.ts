@@ -14,6 +14,8 @@ let currentlySelectedLink: JQuery<HTMLElement> = null;
 
 let prevScreenWidth: number = getViewportWidth();
 
+export let isScrollingProgramatically = false;
+
 $(document).ready(() => {
   setUnderscore();
 
@@ -31,10 +33,6 @@ const setEventListeners = (): void => {
     placeUnderscoreWithEffects();
   });
 
-  $(".nav-link-text").on("click", (e) => {
-    handleNavLinkClick($(e.target));
-  });
-
   $(window).resize(() => {
     handleResize();
   });
@@ -49,7 +47,7 @@ const handleResize = (): void => {
   prevScreenWidth = getViewportWidth();
 };
 
-const handleNavLinkClick = (clickedElement: JQuery<HTMLElement>): void => {
+export const handleNavLinkClick = (clickedElement: JQuery<HTMLElement>): void => {
   currentlySelectedLink = clickedElement;
 
   if (!isCurrentViewportMedium()) {

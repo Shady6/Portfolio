@@ -192,4 +192,3 @@ var isPointInBox = function (box, point) {
         point.y >= box.coords.y &&
         point.y <= box.coords.y + box.height);
 };
-//# sourceMappingURL=welcome_screen_p5_flashing_words.js.map

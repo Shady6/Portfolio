@@ -5,6 +5,7 @@ var offsetTimeToMakeUnderscoreWider = 50;
 var underscoreTransitionTimeMobile = 300;
 var currentlySelectedLink = null;
 var prevScreenWidth = getViewportWidth();
+export var isScrollingProgramatically = false;
 $(document).ready(function () {
     setUnderscore();
     setEventListeners();
@@ -18,9 +19,6 @@ var setEventListeners = function () {
     $(".navbar-collapse").on("hidden.bs.collapse", function () {
         placeUnderscoreWithEffects();
     });
-    $(".nav-link-text").on("click", function (e) {
-        handleNavLinkClick($(e.target));
-    });
     $(window).resize(function () {
         handleResize();
     });
@@ -30,7 +28,7 @@ var handleResize = function () {
         placeUnderscoreWithEffects();
     prevScreenWidth = getViewportWidth();
 };
-var handleNavLinkClick = function (clickedElement) {
+export var handleNavLinkClick = function (clickedElement) {
     currentlySelectedLink = clickedElement;
     if (!isCurrentViewportMedium()) {
         underscore.addClass("transition-ease-out-all");
@@ -95,4 +93,3 @@ var uncolorLinks = function () {
 var colorLink = function (navLinkText) {
     navLinkText.addClass("orange");
 };
-//# sourceMappingURL=nav.js.map
