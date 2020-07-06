@@ -5,8 +5,10 @@ var cnvHeight = 0;
 var font;
 var fontSize = 24;
 var textColor;
-var textRestrictedArea;
+var textRestrictedAreaH1;
+var textRestrictedAreaBtn;
 var yPaddingToRestrictedArea = 50;
+var xPaddingToRestrictedArea = 35;
 var canFlashNewWord = [false, false, false];
 var indexOfWordToFlash = [0, 0, 0];
 var textOpacity = [0, 0, 0];
@@ -24,7 +26,7 @@ var wordsToFlash = [
         "Assembly",
         "C++",
         "GLSL",
-        "Groovy"
+        "Groovy",
     ],
     [
         "REST",
@@ -37,7 +39,7 @@ var wordsToFlash = [
         "SSL",
         "UI",
         "UX",
-        "npm"
+        "npm",
     ],
     [
         "Express",
@@ -49,11 +51,11 @@ var wordsToFlash = [
         "P5",
         "EF",
         "Spring",
-        "Hibernate"
+        "Hibernate",
     ],
 ];
 var wordsetsCount = 3;
-var longestWord = "kurczak";
+var longestWord = "TypeScript";
 var wordCoords = new Array(3);
 var timeToStartFlashingWordset = [3850, 4350, 4850];
 function preload() {
@@ -63,6 +65,7 @@ function windowResized() {
     setCanvasWidthAndHeight();
     resizeCanvas(cnvWidth, cnvHeight);
     setBoundingBoxOfWelcomeText();
+    setBoundingBoxOfGetToKnowMeBtn();
     setFontSize();
 }
 function setup() {
@@ -71,6 +74,7 @@ function setup() {
     var canvas = createCanvas(cnvWidth, cnvHeight);
     canvas.parent("welcome-screen");
     setBoundingBoxOfWelcomeText();
+    setBoundingBoxOfGetToKnowMeBtn();
     for (var i = 0; i < wordsetsCount; i++)
         setWordCoordsOutsideRestrictedAreas(i);
     textColor = color(255, 255, 255);
@@ -80,6 +84,18 @@ function setup() {
 }
 function draw() {
     clear();
+    // rect(
+    //   textRestrictedAreaH1.coords.x,
+    //   textRestrictedAreaH1.coords.y,
+    //   textRestrictedAreaH1.width,
+    //   textRestrictedAreaH1.height
+    // );
+    // rect(
+    //   textRestrictedAreaBtn.coords.x,
+    //   textRestrictedAreaBtn.coords.y,
+    //   textRestrictedAreaBtn.width,
+    //   textRestrictedAreaBtn.height
+    // );
     flashWords();
 }
 var flashWords = function () {
@@ -121,7 +137,8 @@ var setCanvasWidthAndHeight = function () {
 var setWordCoordsOutsideRestrictedAreas = function (indexOfWordSet) {
     do {
         wordCoords[indexOfWordSet] = generateRandomPoint();
-    } while (isPointInBox(textRestrictedArea, wordCoords[indexOfWordSet]));
+    } while (isPointInBox(textRestrictedAreaH1, wordCoords[indexOfWordSet]) ||
+        isPointInBox(textRestrictedAreaBtn, wordCoords[indexOfWordSet]));
 };
 var generateRandomIndex = function (min, max, exclude) {
     var randomIndex = 0;
@@ -136,7 +153,7 @@ var generateRandomPoint = function () {
     return { x: x, y: y };
 };
 var setFontSize = function () {
-    var welcomeTextFontSize = Number($("h1").css("font-size").slice(0, -2));
+    var welcomeTextFontSize = Number($("#welcome-screen h1").css("font-size").slice(0, -2));
     if (cnvWidth < 600)
         fontSize = welcomeTextFontSize / 1.3;
     else
@@ -144,14 +161,29 @@ var setFontSize = function () {
     textSize(fontSize);
 };
 var setBoundingBoxOfWelcomeText = function () {
-    var y = Number($("h1").css("margin-top").slice(0, -2));
-    textRestrictedArea = {
+    var y = $("#welcome-screen h1").position().top;
+    var navHeight = $("nav").outerHeight();
+    textRestrictedAreaH1 = {
         coords: {
             x: 0,
-            y: y - yPaddingToRestrictedArea
+            y: y - navHeight - yPaddingToRestrictedArea
         },
         width: cnvWidth,
-        height: $("h1").height() + 2 * yPaddingToRestrictedArea
+        height: $("#welcome-screen h1").height() + 2 * yPaddingToRestrictedArea
+    };
+};
+var setBoundingBoxOfGetToKnowMeBtn = function () {
+    var y = $("#welcome-screen button").position().top;
+    var x = $("#welcome-screen button").position().left;
+    var btnWidth = $("#welcome-screen button").outerWidth();
+    var navHeight = $("nav").outerHeight();
+    textRestrictedAreaBtn = {
+        coords: {
+            x: x - xPaddingToRestrictedArea - textWidth(longestWord),
+            y: y - navHeight - yPaddingToRestrictedArea
+        },
+        width: btnWidth + 2 * (xPaddingToRestrictedArea + textWidth(longestWord)),
+        height: $("#welcome-screen button").height() + 2 * yPaddingToRestrictedArea
     };
 };
 var isPointInBox = function (box, point) {
