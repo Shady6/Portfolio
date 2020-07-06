@@ -1,4 +1,48 @@
 #about-section{
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgb(49, 49, 49);
 }
+
+.about-container{
+    /* margin-left: auto;
+    margin-right: auto; */
+    padding-top: 14rem;
+    font-size: 1.1rem;
+}
+
+.traits{
+    margin-top: 10rem;
+}
+
+.icon{
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    transform: rotate(45deg);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 10px;
+}
+
+.icon > i{
+    transform: rotate(-45deg);
+    font-size: 2rem;
+}
+
+@media only screen and (max-width: 800px) {
+  
+    .about-container{
+        padding-top: 9rem;
+    }
+  }
+
+
+@media only screen and (max-width: 400px) {
+  
+    .about-container{
+        padding-top: 5rem;
+    }
+  }

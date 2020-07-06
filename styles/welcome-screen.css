@@ -22,6 +22,10 @@ canvas{
     z-index: -1;
 }
 
+.get-to-know-me-btn{
+    font-size: 1.4rem;
+}
+
 
 #welcome-screen button{
     
@@ -64,6 +68,10 @@ canvas{
     #welcome-screen  h1{
         font-size: 1.5rem;
         line-height: 3.5rem;
+    }
+
+    .get-to-know-me-btn{
+        font-size: 1rem;
     }
   }
 
