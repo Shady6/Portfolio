@@ -21,7 +21,6 @@ $(document).ready(() => {
 
   setEventListeners();
 
- // if (!isCurrentViewportMedium()) placeUnderscoreWithEffects();
 });
 
 const setEventListeners = (): void => {

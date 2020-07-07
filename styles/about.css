@@ -26,7 +26,6 @@
 }
 
 .icon-wrap i{
-    transform: rotate(-45deg);
     font-size: 2rem;
 }
 
@@ -43,7 +42,6 @@
     position: relative;
     background: linear-gradient(to right, red, purple);
     padding: 3px;
-    transform: rotate(45deg);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2rem;
