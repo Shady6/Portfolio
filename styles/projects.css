@@ -2,3 +2,20 @@
     min-height: 100vh;
     background-color: rgb(34, 34, 34);
 }
+
+#projects-section .container{
+    padding-top: 8rem;
+}
+
+.project-links-and-stack-container > .label{
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .1)
+}
+
+.project-about-container h4{
+    color: orange;
+}
+
+.project-container img{
+   border-radius: 5px;
+}

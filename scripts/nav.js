@@ -9,8 +9,7 @@ export var isScrollingProgramatically = false;
 $(document).ready(function () {
     setUnderscore();
     setEventListeners();
-    if (!isCurrentViewportMedium())
-        placeUnderscoreWithEffects();
+    // if (!isCurrentViewportMedium()) placeUnderscoreWithEffects();
 });
 var setEventListeners = function () {
     $(".navbar-collapse").on("shown.bs.collapse", function () {

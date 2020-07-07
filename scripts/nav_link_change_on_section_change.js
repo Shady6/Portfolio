@@ -9,11 +9,27 @@ var paddingToChangeLink = 1 / 3 * getViewportHeight();
 $(document).ready(function () {
     mapSectionsToTopPositions();
     setEventListeners();
+    handleDocumentReady();
 });
 var setEventListeners = function () {
     $(window).scroll(function (e) {
         handleScroll(e);
     });
+};
+var handleDocumentReady = function () {
+    var nameOfSectionToScrollTo = "";
+    var distanceFromScrollTopToSection = Number.MAX_SAFE_INTEGER;
+    var scrollTop = $(document).scrollTop();
+    sections.forEach(function (section) {
+        var distance = Math.abs(section.top - scrollTop);
+        if (distance < distanceFromScrollTopToSection) {
+            distanceFromScrollTopToSection = distance;
+            nameOfSectionToScrollTo = section.name;
+        }
+    });
+    console.log(sections);
+    var currentNavLink = $("#" + nameOfSectionToScrollTo + navLinkIdAffix);
+    handleNavLinkClick(currentNavLink);
 };
 var handleScroll = function (e) {
     scrollTopValues.push($(document).scrollTop());
