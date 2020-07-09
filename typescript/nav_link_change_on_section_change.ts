@@ -26,17 +26,15 @@ const handleDocumentReady = (): void => {
     let nameOfSectionToScrollTo = "";
     let distanceFromScrollTopToSection = Number.MAX_SAFE_INTEGER;
     const scrollTop = $(document).scrollTop();
-
     sections.forEach((section) => {
         const distance = Math.abs(section.top - scrollTop)
+        console.log(section.top, scrollTop);
         if (distance < distanceFromScrollTopToSection)
             {
                 distanceFromScrollTopToSection = distance;
                 nameOfSectionToScrollTo = section.name;
             }
     });
-
-    console.log(sections)
     const currentNavLink = $(`#${nameOfSectionToScrollTo}${navLinkIdAffix}`);
     handleNavLinkClick(currentNavLink);
 }

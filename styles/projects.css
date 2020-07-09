@@ -3,13 +3,21 @@
     background-color: rgb(34, 34, 34);
 }
 
+.project-container{
+    margin-bottom: 8rem;
+}
+
 #projects-section .container{
     padding-top: 8rem;
 }
 
 .project-links-and-stack-container  .label{
     font-size: 1.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.label:nth-child(1){
+    margin-top: 1.3rem;
 }
 
 .project-about-container h4{
@@ -31,7 +39,7 @@
     overflow: hidden;
 }
 
-.project-image-container i{
+.project-image-container > i{
     position: absolute;
     color: rgba(255, 255, 255, 1);
     font-size: 2rem;
@@ -42,11 +50,11 @@
     text-shadow: 0px 0px 10px rgba(0,0,0,0.6);
 }
 
-.project-image-container i:hover{
+.project-image-container > i:hover{
     color: rgba(255, 255, 255, 0.6);
 }
 
-.project-image-container i:active{
+.project-image-container > i:active{
     text-shadow: 0px 0px 3px rgba(0,0,0,1);
 }
 
@@ -57,3 +65,79 @@
 .project-image-container .fa-arrow-right{
     left: calc(100% - 2.5rem)
 }
+
+.play-video-showcase{
+    position: absolute;
+    background-color: orange;
+    opacity: 0.8;
+    left:0;
+    top:85%;
+    min-width: 10%;
+    height: 15%;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+.play-video-showcase:hover{
+    background-color: rgb(187, 122, 2);
+    color: rgb(175, 175, 175);
+}
+
+.play-video-showcase i{
+   font-size: 2rem;
+}
+
+.modal-overlay{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0, 0.6);
+    z-index: 1500;
+    transition: all 1s ease-out;
+}
+
+.close-modal{
+    left: calc(100% - 4rem);
+    top: 1.5rem;
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+.close-modal:hover{
+    color: rgb(184, 184, 184);
+}
+
+iframe{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .play-video-showcase{
+        top:80%;
+        height: 20%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .play-video-showcase{
+        top:75%;
+        height: 25%;
+    }
+  }
+
+  @media only screen and (max-width: 420px) {
+    .play-video-showcase{
+        top:63%;
+        height: 37%;
+    }
+  }
+
+
