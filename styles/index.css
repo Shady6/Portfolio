@@ -26,3 +26,11 @@ a:hover{
 .overflow-hidden{
     overflow: hidden;
 }
+
+section:nth-child(even){
+    background-color: rgb(49, 49, 49);
+}
+
+section:not(:first-child){
+    min-height: 100vh;
+}
