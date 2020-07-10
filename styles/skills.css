@@ -5,3 +5,27 @@
 .skills-container{
     margin-bottom: 4rem;
 }
+
+.programming-icons-wrapper {
+    position: relative;
+    background: linear-gradient(to right, rgb(213, 36, 36), rgb(140, 27, 140));
+    padding: 3px;
+    border-radius: 15px;
+  }
+
+  .programming-icons {
+    background: rgb(34, 34, 34);
+    color: white;
+    padding: 2rem 2rem 1rem 2rem;
+    border-radius: 15px;
+  }
+
+  .programming-icons img{
+      margin-bottom: 1rem;
+      transition: transform .3s ease-out;
+  }
+
+  .programming-icons img:hover{
+      transform: scale(0.9);
+  }
+
