@@ -51,6 +51,16 @@
     border-radius: 150px;
   }
 
+  .links .cv-icon{
+      width: 1.8rem;
+  }
+
+  .links i{
+      font-size: 1.8rem;
+  }
+
+  
+
 @media only screen and (max-width: 800px) {
   
     .about-container{

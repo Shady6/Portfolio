@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="cv.svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs2">
+    <rect
+       id="rect860"
+       height="96.109182"
+       width="83.254205"
+       y="79.11178"
+       x="61.471991" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="801"
+     inkscape:window-width="1536"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="571.61501"
+     inkscape:cx="247.76998"
+     inkscape:zoom="0.49497475"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Warstwa 1">
+    <rect
+       y="55.94096"
+       x="44.726189"
+       height="119.28"
+       width="100"
+       id="rect18"
+       style="fill:#ffffff;fill-rule:evenodd;stroke-width:1;stroke:#000000;opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect18-3"
+       width="100"
+       height="119.28"
+       x="53.700577"
+       y="66.511223" />
+    <text
+       transform="matrix(5.8433421,0,0,5.8433421,-299.54231,-391.98461)"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect860);fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.17113494;stroke-miterlimit:4;stroke-dasharray:none;"
+       id="text858"
+       xml:space="preserve"><tspan
+         x="61.472656"
+         y="88.766793"><tspan
+           style="fill:none;stroke:#ffffff;stroke-width:0.171135;stroke-miterlimit:4;stroke-dasharray:none">CV
+</tspan></tspan></text>
+    <rect
+       transform="scale(1,-1)"
+       y="-147.18314"
+       x="63.273026"
+       height="2.6120172"
+       width="80.855103"
+       id="rect866"
+       style="opacity:1;fill:none;stroke:#ffffff;stroke-width:0.267234;stroke-miterlimit:4;stroke-dasharray:none" />
+    <rect
+       style="opacity:1;fill:none;stroke:#ffffff;stroke-width:0.267234;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect868"
+       width="80.855103"
+       height="2.6120172"
+       x="63.273026"
+       y="-157.27731"
+       transform="scale(1,-1)" />
+    <rect
+       transform="scale(1,-1)"
+       y="-167.37149"
+       x="63.273026"
+       height="2.6120172"
+       width="80.855103"
+       id="rect870"
+       style="opacity:1;fill:none;stroke:#ffffff;stroke-width:0.267234;stroke-miterlimit:4;stroke-dasharray:none" />
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+#contact-section{
+    color: rgb(231, 231, 231);
+    font-size: 1.3rem;
+    min-height: 50vh;
+}
+
+#contact-section > .container{
+    min-height: 50vh;
+}
+
+#contact-section > .container{
+    padding-top: 8rem;
+}
+
+.email > b{
+    padding-bottom: 2rem;
+    border-bottom: 1px solid white;
+}
+
+.icons-container .cv-svg{
+    width: 2rem;
+    fill: white;
+}
+
+.icons-container i{
+    font-size: 2rem;
+}
+
+.creator-info-container{
+    font-size: 1rem;
+}
