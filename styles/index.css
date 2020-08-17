@@ -12,15 +12,20 @@ body{
     color: white;
 }
 
-a{
+a, a > .cv-svg{
     color: white;
     transition: all .25s ease-out;
 }
 
-a:hover{
+a:hover, a:hover .cv-svg{
     text-decoration: none;
     color: rgb(255, 218, 148);
     cursor: pointer;
+    fill: rgb(255, 218, 148);
+}
+
+.cv-svg{
+    fill: white;
 }
 
 .overflow-hidden{
