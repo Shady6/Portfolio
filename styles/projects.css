@@ -113,6 +113,17 @@ iframe{
    margin-right: auto;
 }
 
+.disabled-link{
+    text-decoration: line-through;
+    color: rgb(175, 175, 175);
+}
+
+.disabled-link:hover{
+    text-decoration: line-through;
+    color: rgb(175, 175, 175);
+    cursor: default;
+}
+
 
 @media only screen and (max-width: 992px) {
     .play-video-showcase{

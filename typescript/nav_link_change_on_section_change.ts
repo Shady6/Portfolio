@@ -8,7 +8,8 @@ const sectionIdAffix = "-section";
 const navLinkIdAffix = "-span";
 const activeLinkClass = "orange";
 
-const paddingToChangeLink = 1/3 * getViewportHeight();
+const paddingToChangeLinkScrollingUp = 1/3 * getViewportHeight();
+const paddingToChangeLinkScrollingDown = 2/3 * getViewportHeight();
 
 $(document).ready(() => {
     mapSectionsToTopPositions();
@@ -55,7 +56,7 @@ const handleScroll = (e: JQuery.ScrollEvent): void => {
 }
 
 const handleScrollingDown = () => {
-    const scrollTopWithPadding = scrollTopValues[1] + paddingToChangeLink;
+    const scrollTopWithPadding = scrollTopValues[1] + paddingToChangeLinkScrollingDown;
 
     for (let i = sections.length - 1; i >= 0; i--) {
 
@@ -70,13 +71,13 @@ const handleScrollingDown = () => {
 }
 
 const handleScrollingUp = () => {
-    const scrollTopWithPadding = scrollTopValues[1] - paddingToChangeLink;
+    const scrollTopWithPadding = scrollTopValues[1] + paddingToChangeLinkScrollingUp;
 
-    for (let i = 0; i < sections.length; i++) {
+    for (let i = sections.length - 2; i >= -1 ; i--) {
 
-        const currentNavLink = $(`#${sections[i].name}${navLinkIdAffix}`);
-
-        if (scrollTopWithPadding <= sections[i].top){
+        const currentNavLink = $(`#${sections[i + 1].name}${navLinkIdAffix}`);
+        console.log(scrollTopWithPadding, sections[i + 1].top)
+        if (scrollTopWithPadding >= sections[i + 1].top){
             if (!currentNavLink.hasClass(activeLinkClass))
                 handleNavLinkClick(currentNavLink);
             break;

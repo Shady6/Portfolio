@@ -5,7 +5,8 @@ var sections = [];
 var sectionIdAffix = "-section";
 var navLinkIdAffix = "-span";
 var activeLinkClass = "orange";
-var paddingToChangeLink = 1 / 3 * getViewportHeight();
+var paddingToChangeLinkScrollingUp = 1 / 3 * getViewportHeight();
+var paddingToChangeLinkScrollingDown = 2 / 3 * getViewportHeight();
 $(document).ready(function () {
     mapSectionsToTopPositions();
     setEventListeners();
@@ -43,7 +44,7 @@ var handleScroll = function (e) {
     }
 };
 var handleScrollingDown = function () {
-    var scrollTopWithPadding = scrollTopValues[1] + paddingToChangeLink;
+    var scrollTopWithPadding = scrollTopValues[1] + paddingToChangeLinkScrollingDown;
     for (var i = sections.length - 1; i >= 0; i--) {
         var currentNavLink = $("#" + sections[i].name + navLinkIdAffix);
         if (scrollTopWithPadding >= sections[i].top) {
@@ -54,10 +55,11 @@ var handleScrollingDown = function () {
     }
 };
 var handleScrollingUp = function () {
-    var scrollTopWithPadding = scrollTopValues[1] - paddingToChangeLink;
-    for (var i = 0; i < sections.length; i++) {
-        var currentNavLink = $("#" + sections[i].name + navLinkIdAffix);
-        if (scrollTopWithPadding <= sections[i].top) {
+    var scrollTopWithPadding = scrollTopValues[1] + paddingToChangeLinkScrollingUp;
+    for (var i = sections.length - 2; i >= -1; i--) {
+        var currentNavLink = $("#" + sections[i + 1].name + navLinkIdAffix);
+        console.log(scrollTopWithPadding, sections[i + 1].top);
+        if (scrollTopWithPadding >= sections[i + 1].top) {
             if (!currentNavLink.hasClass(activeLinkClass))
                 handleNavLinkClick(currentNavLink);
             break;
