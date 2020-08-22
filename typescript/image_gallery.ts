@@ -9,10 +9,12 @@ $(document).ready(() => {
 
 const setEventListeners = () => {
   $(".fa-arrow-left").on("click", (e) => {
+    e.stopPropagation();
     changeImage($(e.target).parent(), -1);
   });
 
   $(".fa-arrow-right").on("click", (e) => {
+    e.stopPropagation();
     changeImage($(e.target).parent(), 1);
   });
 };

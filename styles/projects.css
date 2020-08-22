@@ -3,7 +3,12 @@
 }
 
 #projects-section .container{
-    padding-top: 8rem;
+    padding-top: 5rem;
+}
+
+.projects-header{
+    margin-bottom: 5rem;
+    font-size: 4rem;
 }
 
 .project-links-and-stack-container  .label{
@@ -21,6 +26,7 @@
 
 .project-image-container{
     position: relative;
+    display: flex;
 }
 
 .project-container img{
@@ -28,6 +34,7 @@
    position: relative;
    top:0;
    left:0;
+   cursor: zoom-in;
 }
 
 .project-image-container{
@@ -64,11 +71,11 @@
 .play-video-showcase{
     position: absolute;
     background-color: orange;
-    opacity: 0.8;
     left:0;
-    top:85%;
+    top: 85%;
+    opacity: 0.8;
     min-width: 10%;
-    height: 15%;
+    min-height: 15%;
     cursor: pointer;
     transition: all .3s ease-out;
 }
@@ -124,6 +131,21 @@ iframe{
     cursor: default;
 }
 
+.images-in-modal{
+    margin: 7rem; 
+}
+
+@media only screen and (max-width: 1500px) {
+    .images-in-modal{
+        margin: 3rem; 
+    }
+  }
+
+  @media only screen and (max-width: 1300px) {
+    .images-in-modal{
+        margin: 1rem; 
+    }
+  }
 
 @media only screen and (max-width: 992px) {
     .play-video-showcase{
@@ -132,10 +154,20 @@ iframe{
     }
   }
 
+  @media only screen and (max-width: 768px) {
+    .play-video-showcase i{
+        /* font-size: 1rem; */
+     }
+  }
+
   @media only screen and (max-width: 600px) {
     .play-video-showcase{
         top:75%;
         height: 25%;
+    }
+
+    .projects-header{
+        font-size: 3rem;
     }
   }
 

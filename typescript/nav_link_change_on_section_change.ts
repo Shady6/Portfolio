@@ -76,7 +76,7 @@ const handleScrollingUp = () => {
     for (let i = sections.length - 2; i >= -1 ; i--) {
 
         const currentNavLink = $(`#${sections[i + 1].name}${navLinkIdAffix}`);
-        console.log(scrollTopWithPadding, sections[i + 1].top)
+
         if (scrollTopWithPadding >= sections[i + 1].top){
             if (!currentNavLink.hasClass(activeLinkClass))
                 handleNavLinkClick(currentNavLink);

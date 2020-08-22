@@ -7,9 +7,11 @@ $(document).ready(function () {
 });
 var setEventListeners = function () {
     $(".fa-arrow-left").on("click", function (e) {
+        e.stopPropagation();
         changeImage($(e.target).parent(), -1);
     });
     $(".fa-arrow-right").on("click", function (e) {
+        e.stopPropagation();
         changeImage($(e.target).parent(), 1);
     });
 };

@@ -7,14 +7,19 @@ $(document).ready(function () {
 });
 var setEventListeners = function () {
     $(".play-video-showcase").on("click", function (e) {
+        e.stopPropagation();
         handlePlayVideoClick(e.currentTarget.getAttribute("modal-to-show"));
+    });
+    $(".show-magnified-gallery").on("click", function (e) {
+        toggleModal($(e.currentTarget.getAttribute("modal-to-show")));
     });
     $(".close-modal").on("click", function (e) {
         e.stopPropagation();
         handleTimesAndBackgroundClick("#" + e.currentTarget.parentElement.id);
     });
     $(".modal-overlay").on("click", function (e) {
-        handleTimesAndBackgroundClick("#" + e.currentTarget.id);
+        if (e.target.tagName === "DIV")
+            handleTimesAndBackgroundClick("#" + e.currentTarget.id);
     });
     $(window).resize(function () {
         setSizeOfAllIframes();
