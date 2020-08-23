@@ -1,5 +1,4 @@
 import { getViewportWidth, getViewportHeight } from "./window_utils.js";
-import { mediumBreakpoint } from "./static_data.js";
 var iframeWidthFactor = 0.8;
 var iframeHeightFactor = 0.8;
 var currentPhotoModalSelector = "";
@@ -13,8 +12,7 @@ var setEventListeners = function () {
         handlePlayVideoClick(e.currentTarget.getAttribute("modal-to-show"));
     });
     $(".show-magnified-gallery").on("click", function (e) {
-        if (getViewportWidth() > mediumBreakpoint)
-            showMagnifiedGallery(e);
+        showMagnifiedGallery(e);
     });
     $(".close-modal").on("click", function (e) {
         e.stopPropagation();
@@ -67,6 +65,7 @@ var getDisplayedPhotoIndex = function (nodes) {
     var imgIndex = 0;
     for (var i = 0; i < nodes.length; i++) {
         if (nodes[i].tagName === "IMG") {
+            console.log($(nodes[i]).is(":visible"));
             if ($(nodes[i]).is(":visible"))
                 break;
             imgIndex++;
@@ -78,6 +77,7 @@ var showProperPhotoOnClose = function () {
     var childNodesOfPhotosContainer = document.querySelector(currentPhotoModalSelector + " .project-image-container").childNodes;
     var photoIndex = getDisplayedPhotoIndex(childNodesOfPhotosContainer);
     var photosParentContainer = $("div[modal-to-show=\"" + currentPhotoModalSelector + "\"]");
+    console.log(childNodesOfPhotosContainer, photoIndex, photosParentContainer);
     setVisibilityOfPhotos(photosParentContainer, photoIndex);
 };
 var showMagnifiedGallery = function (e) {

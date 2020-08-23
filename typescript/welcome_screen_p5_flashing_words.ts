@@ -98,21 +98,9 @@ function setup() {
 
 function draw() {
   clear();
-
-  // rect(
-  //   textRestrictedAreaH1.coords.x,
-  //   textRestrictedAreaH1.coords.y,
-  //   textRestrictedAreaH1.width,
-  //   textRestrictedAreaH1.height
-  // );
-  // rect(
-  //   textRestrictedAreaBtn.coords.x,
-  //   textRestrictedAreaBtn.coords.y,
-  //   textRestrictedAreaBtn.width,
-  //   textRestrictedAreaBtn.height
-  // );
-
-  flashWords();
+  if (cnvHeight > 400) {
+    flashWords();
+  }
 }
 
 const flashWords = () => {
@@ -240,10 +228,10 @@ const setBoundingBoxOfGetToKnowMeBtn = (): void => {
   textRestrictedAreaBtn = {
     coords: {
       x: x - xPaddingToRestrictedArea - textWidth(longestWord),
-      y: y - navHeight - yPaddingToRestrictedArea ,
+      y: y - navHeight - yPaddingToRestrictedArea,
     },
     width: btnWidth + 2 * (xPaddingToRestrictedArea + textWidth(longestWord)),
-    height: $("#welcome-screen button").height() + 2 * yPaddingToRestrictedArea ,
+    height: $("#welcome-screen button").height() + 2 * yPaddingToRestrictedArea,
   };
 };
 
