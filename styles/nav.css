@@ -1,6 +1,7 @@
 nav {
     color: #fff;
     background-color: rgb(49, 34, 34);
+    padding: 1rem !important;
 }
 
 nav a {

@@ -4,6 +4,27 @@
     font-weight: 400;
 }
 
+.btn-primary{
+    background-color: rgb(223, 114, 74);
+    border-color: rgb(223, 114, 74);
+}
+
+.btn-primary:hover{
+    background-color: rgb(197, 100, 64);
+    border-color: rgb(197, 100, 64);
+}
+
+.btn-primary:active{
+    background-color: rgb(169, 85, 54) !important;
+    border-color: rgb(169, 85, 54) !important;
+}
+
+.btn-primary:focus{
+    background-color: rgb(169, 85, 54);
+    border-color: rgb(169, 85, 54);
+    box-shadow: 0 0 0 0.2rem rgb(223, 114, 74);
+}
+
 .red{
     color: orange;
 }

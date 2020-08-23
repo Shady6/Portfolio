@@ -23,7 +23,6 @@ var handleDocumentReady = function () {
     var scrollTop = $(document).scrollTop();
     sections.forEach(function (section) {
         var distance = Math.abs(section.top - scrollTop);
-        console.log(section.top, scrollTop);
         if (distance < distanceFromScrollTopToSection) {
             distanceFromScrollTopToSection = distance;
             nameOfSectionToScrollTo = section.name;

@@ -57,9 +57,9 @@ var wordsToFlash = [
 var wordsetsCount = 3;
 var longestWord = "TypeScript";
 var wordCoords = new Array(3);
-var timeToStartFlashingWordset = [3850, 4350, 4850];
+var timeToStartFlashingWordset = [4000, 4500, 5000];
 function preload() {
-    font = loadFont("../assets/Arial.ttf");
+    font = loadFont("../assets/arial.ttf");
 }
 function windowResized() {
     setCanvasWidthAndHeight();
@@ -77,25 +77,13 @@ function setup() {
     setBoundingBoxOfGetToKnowMeBtn();
     for (var i = 0; i < wordsetsCount; i++)
         setWordCoordsOutsideRestrictedAreas(i);
-    textColor = color(255, 255, 255);
+    textColor = color(200, 200, 200);
     textColor.setAlpha(0);
     background(34, 34, 34);
     fill(textColor);
 }
 function draw() {
     clear();
-    // rect(
-    //   textRestrictedAreaH1.coords.x,
-    //   textRestrictedAreaH1.coords.y,
-    //   textRestrictedAreaH1.width,
-    //   textRestrictedAreaH1.height
-    // );
-    // rect(
-    //   textRestrictedAreaBtn.coords.x,
-    //   textRestrictedAreaBtn.coords.y,
-    //   textRestrictedAreaBtn.width,
-    //   textRestrictedAreaBtn.height
-    // );
     flashWords();
 }
 var flashWords = function () {

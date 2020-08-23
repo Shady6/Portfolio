@@ -43,21 +43,21 @@
 
 .project-image-container > i{
     position: absolute;
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 208, 121, 0.8);
     font-size: 2rem;
     top: calc(50% - 1rem);
-    opacity: 0.5;
     cursor: pointer;
     transition: all .2s ease-out;
-    text-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+    text-shadow: 0px 0px 6px rgba(0,0,0,0.5);
 }
 
 .project-image-container > i:hover{
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(253, 184, 56, 0.8);
 }
 
 .project-image-container > i:active{
-    text-shadow: 0px 0px 3px rgba(0,0,0,1);
+    text-shadow: 0px 0px 1px rgba(0,0,0, 0.5);
+    color: rgba(211, 152, 43, 0.8);
 }
 
 .project-image-container .fa-arrow-left{
@@ -155,9 +155,9 @@ iframe{
   }
 
   @media only screen and (max-width: 768px) {
-    .play-video-showcase i{
-        /* font-size: 1rem; */
-     }
+    .project-container img{
+        cursor: default;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -168,6 +168,12 @@ iframe{
 
     .projects-header{
         font-size: 3rem;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    .project-container{
+        margin-bottom: 4rem;
     }
   }
 

@@ -13,19 +13,19 @@ body{
 }
 
 a, a > .cv-svg{
-    color: rgb(187, 240, 255);
+    color: rgb(255, 229, 211);
     transition: all .25s ease-out;
 }
 
 a:hover, a:hover .cv-svg{
     text-decoration: none;
-    color: rgb(255, 218, 148);
+    color: rgb(255, 181, 129);
     cursor: pointer;
-    fill: rgb(255, 218, 148);
+    fill: rgb(255, 181, 129);
 }
 
 .cv-svg{
-    fill: rgb(187, 240, 255);
+    fill:rgb(255, 229, 211);
 }
 
 .overflow-hidden{

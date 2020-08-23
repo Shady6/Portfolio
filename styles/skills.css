@@ -1,9 +1,13 @@
 #skills-section > .container{
-    padding-top: 8rem;
+    padding-top: 5rem;
 }
 
 .skills-container{
     margin-bottom: 4rem;
+}
+
+.skills-container:last-of-type{
+    padding-bottom: 4rem;
 }
 
 .programming-icons-wrapper {
