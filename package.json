@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/Shady6/Portfolio#readme",
   "devDependencies": {
-    "@types/jquery": "^3.5.0",
+    "@types/jquery": "^3.5.1",
     "ts-loader": "^7.0.5"
   },
   "dependencies": {

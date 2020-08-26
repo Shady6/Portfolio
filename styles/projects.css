@@ -137,13 +137,19 @@ iframe{
 
 @media only screen and (max-width: 1500px) {
     .images-in-modal{
-        margin: 3rem; 
+        margin: 6rem; 
     }
   }
 
   @media only screen and (max-width: 1300px) {
     .images-in-modal{
-        margin: 1rem; 
+        margin: 5rem; 
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .images-in-modal{
+        margin: 4.5rem; 
     }
   }
 

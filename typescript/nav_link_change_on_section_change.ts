@@ -29,7 +29,6 @@ const handleDocumentReady = (): void => {
     const scrollTop = $(document).scrollTop();
     sections.forEach((section) => {
         const distance = Math.abs(section.top - scrollTop)
-        console.log(section.top, scrollTop);
         if (distance < distanceFromScrollTopToSection)
             {
                 distanceFromScrollTopToSection = distance;

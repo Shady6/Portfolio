@@ -1,4 +1,5 @@
 import { getViewportWidth, getViewportHeight } from "./window_utils.js";
+import {mediumBreakpoint} from "./static_data.js";
 
 const iframeWidthFactor = 0.8;
 const iframeHeightFactor = 0.8;
@@ -17,7 +18,8 @@ const setEventListeners = () => {
   });
 
   $(".show-magnified-gallery").on("click", (e) => {
-    showMagnifiedGallery(e);
+    if (getViewportWidth() > mediumBreakpoint)
+      showMagnifiedGallery(e);
   });
 
   $(".close-modal").on("click", (e) => {
@@ -89,7 +91,6 @@ const getDisplayedPhotoIndex = (nodes: NodeListOf<ChildNode>): number => {
 
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i].tagName === "IMG") {
-      console.log($(nodes[i]).is(":visible"))
       if ($(nodes[i]).is(":visible")) break;
       imgIndex++;
     }
@@ -104,7 +105,6 @@ const showProperPhotoOnClose = () => {
   const photoIndex = getDisplayedPhotoIndex(childNodesOfPhotosContainer);
   const photosParentContainer = $(`div[modal-to-show="${currentPhotoModalSelector}"]`);
 
-  console.log(childNodesOfPhotosContainer, photoIndex, photosParentContainer);
 
   setVisibilityOfPhotos(photosParentContainer, photoIndex);
 
