@@ -33,6 +33,10 @@ const setEventListeners = (): void => {
     navbarTogglerClosed = false;
   });
 
+  $("#get-to-know-me-link").on("click", (e) => {
+    userScoll = false;
+  });
+
   $(".nav-link").on("click", (e) => {
     userScoll = false;
     selectedSection = e.currentTarget.hash;

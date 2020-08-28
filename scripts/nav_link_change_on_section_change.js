@@ -24,6 +24,9 @@ var setEventListeners = function () {
     $(".navbar-toggler").on("click", function () {
         navbarTogglerClosed = false;
     });
+    $("#get-to-know-me-link").on("click", function (e) {
+        userScoll = false;
+    });
     $(".nav-link").on("click", function (e) {
         userScoll = false;
         selectedSection = e.currentTarget.hash;

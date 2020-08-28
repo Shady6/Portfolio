@@ -10,12 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
         lazyloadThrottleTimeout = setTimeout(function () {
             lazyloadImages.forEach(function (element) {
                 var yOffset = getTopOffsetOfElement(element);
-                if (yOffset < window.innerHeight + window.pageYOffset + paddingTopToLoad) {
+                if ($(element).hasClass("lazy") &&
+                    yOffset < window.innerHeight + window.pageYOffset + paddingTopToLoad) {
                     element.src = element.dataset.src;
-                    element.classList.remove('lazy');
+                    element.classList.remove("lazy");
                 }
             });
-            if (lazyloadImages.length == 0) {
+            if (document.querySelectorAll(".lazy").length == 0) {
+                console.log("removed");
                 document.removeEventListener("scroll", lazyload);
                 window.removeEventListener("resize", lazyload);
                 window.removeEventListener("orientationChange", lazyload);
