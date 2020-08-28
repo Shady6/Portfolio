@@ -35,6 +35,8 @@ const setEventListeners = (): void => {
 
   $("#get-to-know-me-link").on("click", (e) => {
     userScoll = false;
+    selectedSection = "#about"
+    handleNavLinkClick($(`#about-span`));
   });
 
   $(".nav-link").on("click", (e) => {

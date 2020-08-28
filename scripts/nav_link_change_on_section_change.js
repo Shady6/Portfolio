@@ -26,6 +26,8 @@ var setEventListeners = function () {
     });
     $("#get-to-know-me-link").on("click", function (e) {
         userScoll = false;
+        selectedSection = "#about";
+        handleNavLinkClick($("#about-span"));
     });
     $(".nav-link").on("click", function (e) {
         userScoll = false;
