@@ -2,7 +2,6 @@ import { getViewportHeight } from "./window_utils.js";
 import { handleNavLinkClick } from "./nav.js";
 var scrollTopValues = [];
 var sections = [];
-var sectionIdAffix = "-section";
 var navLinkIdAffix = "-span";
 var activeLinkClass = "orange";
 var paddingToChangeLinkScrollingUp = (1 / 3) * getViewportHeight();
@@ -47,7 +46,6 @@ var handleDocumentReady = function () {
     });
     var currentNavLink = $("#" + nameOfSectionToScrollTo + navLinkIdAffix);
     handleNavLinkClick(currentNavLink);
-    console.table(sections);
 };
 var handleScroll = function () {
     if (userScoll) {
@@ -74,7 +72,7 @@ var closeNavbarOnSectionClicked = function () {
     }
 };
 var checkIfWindowScrolledToClickedSection = function (i) {
-    return (sections[i].name === selectedSection.slice(1, -sectionIdAffix.length) &&
+    return (sections[i].name === selectedSection.slice(1) &&
         ((window.pageYOffset + 100 >= sections[i].top &&
             window.pageYOffset - 100 <= sections[i].top) ||
             (i === sections.length - 1 &&
@@ -107,7 +105,7 @@ export var mapSectionsToTopPositions = function () {
     $("section").each(function (i, section) {
         sections.push({
             top: $(section).position().top,
-            name: $(section)[0].id.slice(0, -sectionIdAffix.length)
+            name: $(section)[0].id
         });
     });
 };

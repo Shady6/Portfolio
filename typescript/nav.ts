@@ -58,7 +58,13 @@ export const handleNavLinkClick = (
     underscore.addClass("transition-ease-out-width");
     moveUnderscoreWithEffectsMobile(clickedElement);
   }
+
+  changeDocumentLocationHash(clickedElement);
 };
+
+const changeDocumentLocationHash = (clickedElement: JQuery<HTMLElement>) => {
+  document.location.hash = clickedElement[0].id.slice(0, -5);
+}
 
 const placeUnderscoreWithEffects = (): void => {
   underscore.removeClass("transition-ease-out-all");

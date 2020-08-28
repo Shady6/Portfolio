@@ -38,6 +38,10 @@ export var handleNavLinkClick = function (clickedElement) {
         underscore.addClass("transition-ease-out-width");
         moveUnderscoreWithEffectsMobile(clickedElement);
     }
+    changeDocumentLocationHash(clickedElement);
+};
+var changeDocumentLocationHash = function (clickedElement) {
+    document.location.hash = clickedElement[0].id.slice(0, -5);
 };
 var placeUnderscoreWithEffects = function () {
     underscore.removeClass("transition-ease-out-all");

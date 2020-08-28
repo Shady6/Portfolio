@@ -4,7 +4,6 @@ import { handleNavLinkClick, underscoreTransitionTime } from "./nav.js";
 let scrollTopValues: number[] = [];
 
 let sections: Section[] = [];
-const sectionIdAffix = "-section";
 const navLinkIdAffix = "-span";
 const activeLinkClass = "orange";
 
@@ -58,7 +57,6 @@ const handleDocumentReady = (): void => {
   });
   const currentNavLink = $(`#${nameOfSectionToScrollTo}${navLinkIdAffix}`);
   handleNavLinkClick(currentNavLink);
-  console.table(sections);
 };
 
 const handleScroll = (): void => {
@@ -88,7 +86,7 @@ const closeNavbarOnSectionClicked = () => {
 
 const checkIfWindowScrolledToClickedSection = (i: number): boolean => {
   return (
-    sections[i].name === selectedSection.slice(1, -sectionIdAffix.length) &&
+    sections[i].name === selectedSection.slice(1) &&
       ((window.pageYOffset + 100 >= sections[i].top &&
         window.pageYOffset - 100 <= sections[i].top) ||
       (i === sections.length - 1 &&
@@ -131,7 +129,7 @@ export const mapSectionsToTopPositions = () => {
   $("section").each((i, section) => {
     sections.push({
       top: $(section).position().top,
-      name: $(section)[0].id.slice(0, -sectionIdAffix.length),
+      name: $(section)[0].id
     });
   });
 };
