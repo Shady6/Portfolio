@@ -1,8 +1,7 @@
 import { isCurrentViewportMedium, isViewportMedium, getViewportWidth, } from "./window_utils.js";
 var underscore;
-var underscoreTransitionTime = 300;
+export var underscoreTransitionTime = 300;
 var offsetTimeToMakeUnderscoreWider = 50;
-var underscoreTransitionTimeMobile = 300;
 var currentlySelectedLink = null;
 var prevScreenWidth = getViewportWidth();
 export var isScrollingProgramatically = false;
@@ -50,9 +49,7 @@ var placeUnderscoreWithEffects = function () {
     else
         underscore.addClass("transition-ease-out-width");
     setUnderscoreWidthEqualToRefElement(navLink);
-    setTimeout(function () {
-        colorLink(navLink);
-    }, underscoreTransitionTime);
+    colorLink(navLink);
 };
 var moveUnderscoreWithEffects = function (clickedElement) {
     uncolorLinks();
@@ -67,7 +64,7 @@ var moveUnderscoreWithEffectsMobile = function (clickedElement) {
     setTimeout(function () {
         placeUnderscore(clickedElement);
         setUnderscoreWidthEqualToRefElement(clickedElement);
-    }, underscoreTransitionTimeMobile);
+    }, underscoreTransitionTime);
 };
 var setUnderscore = function () {
     underscore = $(".underscore");

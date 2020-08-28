@@ -5,16 +5,33 @@ var sections = [];
 var sectionIdAffix = "-section";
 var navLinkIdAffix = "-span";
 var activeLinkClass = "orange";
-var paddingToChangeLinkScrollingUp = 1 / 3 * getViewportHeight();
-var paddingToChangeLinkScrollingDown = 2 / 3 * getViewportHeight();
+var paddingToChangeLinkScrollingUp = (1 / 3) * getViewportHeight();
+var paddingToChangeLinkScrollingDown = getViewportHeight();
+var userScoll = true;
+var selectedSection = "";
+var navbarTogglerClosed = true;
 $(document).ready(function () {
     mapSectionsToTopPositions();
     setEventListeners();
     handleDocumentReady();
 });
 var setEventListeners = function () {
-    $(window).scroll(function (e) {
-        handleScroll(e);
+    document.onmousewheel = function () {
+        userScoll = true;
+    };
+    document.addEventListener("touchstart", function () {
+        userScoll = true;
+    });
+    $(".navbar-toggler").on("click", function () {
+        navbarTogglerClosed = false;
+    });
+    $(".nav-link").on("click", function (e) {
+        userScoll = false;
+        selectedSection = e.currentTarget.hash;
+        handleNavLinkClick($("#" + e.currentTarget.firstChild.id));
+    });
+    $(document).scroll(function () {
+        handleScroll();
     });
 };
 var handleDocumentReady = function () {
@@ -30,17 +47,38 @@ var handleDocumentReady = function () {
     });
     var currentNavLink = $("#" + nameOfSectionToScrollTo + navLinkIdAffix);
     handleNavLinkClick(currentNavLink);
+    console.table(sections);
 };
-var handleScroll = function (e) {
-    scrollTopValues.push($(document).scrollTop());
-    if (scrollTopValues.length === 2) {
-        var deltaScrollY = scrollTopValues[1] - scrollTopValues[0];
-        if (deltaScrollY > 0)
-            handleScrollingDown();
-        else if (deltaScrollY < 0)
-            handleScrollingUp();
-        scrollTopValues = [];
+var handleScroll = function () {
+    if (userScoll) {
+        scrollTopValues.push($(document).scrollTop());
+        if (scrollTopValues.length === 2) {
+            var deltaScrollY = scrollTopValues[1] - scrollTopValues[0];
+            if (deltaScrollY > 0)
+                handleScrollingDown();
+            else if (deltaScrollY < 0)
+                handleScrollingUp();
+            scrollTopValues = [];
+        }
     }
+    else if (!navbarTogglerClosed)
+        closeNavbarOnSectionClicked();
+};
+var closeNavbarOnSectionClicked = function () {
+    for (var i = 0; i < sections.length; i++) {
+        if (checkIfWindowScrolledToClickedSection(i)) {
+            $(".navbar-toggler").click();
+            navbarTogglerClosed = true;
+            break;
+        }
+    }
+};
+var checkIfWindowScrolledToClickedSection = function (i) {
+    return (sections[i].name === selectedSection.slice(1, -sectionIdAffix.length) &&
+        ((window.pageYOffset + 100 >= sections[i].top &&
+            window.pageYOffset - 100 <= sections[i].top) ||
+            (i === sections.length - 1 &&
+                window.pageYOffset + window.innerHeight >= document.body.clientHeight)));
 };
 var handleScrollingDown = function () {
     var scrollTopWithPadding = scrollTopValues[1] + paddingToChangeLinkScrollingDown;
@@ -65,6 +103,7 @@ var handleScrollingUp = function () {
     }
 };
 export var mapSectionsToTopPositions = function () {
+    sections = [];
     $("section").each(function (i, section) {
         sections.push({
             top: $(section).position().top,

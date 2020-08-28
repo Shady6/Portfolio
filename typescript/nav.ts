@@ -5,10 +5,8 @@ import {
 } from "./window_utils.js";
 
 let underscore: JQuery<HTMLElement>;
-const underscoreTransitionTime: number = 300;
+export const underscoreTransitionTime: number = 300;
 const offsetTimeToMakeUnderscoreWider: number = 50;
-
-const underscoreTransitionTimeMobile: number = 300;
 
 let currentlySelectedLink: JQuery<HTMLElement> = null;
 
@@ -45,7 +43,10 @@ const handleResize = (): void => {
   prevScreenWidth = getViewportWidth();
 };
 
-export const handleNavLinkClick = (clickedElement: JQuery<HTMLElement>): void => {
+
+export const handleNavLinkClick = (
+  clickedElement: JQuery<HTMLElement>
+): void => {
   currentlySelectedLink = clickedElement;
 
   if (!isCurrentViewportMedium()) {
@@ -71,12 +72,12 @@ const placeUnderscoreWithEffects = (): void => {
   else underscore.addClass("transition-ease-out-width");
 
   setUnderscoreWidthEqualToRefElement(navLink);
-  setTimeout(() => {
-    colorLink(navLink);
-  }, underscoreTransitionTime);
+  colorLink(navLink);
 };
 
-const moveUnderscoreWithEffects = (clickedElement: JQuery<HTMLElement>): void => {
+const moveUnderscoreWithEffects = (
+  clickedElement: JQuery<HTMLElement>
+): void => {
   uncolorLinks();
   colorLink(clickedElement);
 
@@ -84,7 +85,9 @@ const moveUnderscoreWithEffects = (clickedElement: JQuery<HTMLElement>): void =>
   wiggleUnderscore(clickedElement);
 };
 
-const moveUnderscoreWithEffectsMobile = (clickedElement: JQuery<HTMLElement>): void => {
+const moveUnderscoreWithEffectsMobile = (
+  clickedElement: JQuery<HTMLElement>
+): void => {
   uncolorLinks();
   colorLink(clickedElement);
 
@@ -92,7 +95,7 @@ const moveUnderscoreWithEffectsMobile = (clickedElement: JQuery<HTMLElement>): v
   setTimeout(() => {
     placeUnderscore(clickedElement);
     setUnderscoreWidthEqualToRefElement(clickedElement);
-  }, underscoreTransitionTimeMobile);
+  }, underscoreTransitionTime);
 };
 
 const setUnderscore = (): void => {
