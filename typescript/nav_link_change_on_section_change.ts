@@ -37,6 +37,7 @@ const handleDocumentReady = (): void => {
     });
     const currentNavLink = $(`#${nameOfSectionToScrollTo}${navLinkIdAffix}`);
     handleNavLinkClick(currentNavLink);
+    
 }
 
 const handleScroll = (e: JQuery.ScrollEvent): void => {
@@ -84,7 +85,7 @@ const handleScrollingUp = () => {
     }
 }
 
-const mapSectionsToTopPositions = () => {
+export const mapSectionsToTopPositions = () => {
     $("section").each((i, section) => {
         sections.push({
             top: $(section).position().top,

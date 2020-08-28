@@ -59,7 +59,7 @@ var longestWord = "TypeScript";
 var wordCoords = new Array(3);
 var timeToStartFlashingWordset = [3850, 4350, 4850];
 function preload() {
-    font = loadFont("../assets/Arial.ttf");
+    font = loadFont("assets/Arial.ttf");
 }
 function windowResized() {
     setCanvasWidthAndHeight();

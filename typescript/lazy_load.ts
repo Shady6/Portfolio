@@ -1,3 +1,5 @@
+import {mapSectionsToTopPositions} from "./nav_link_change_on_section_change.js";
+
 document.addEventListener("DOMContentLoaded", function() {
     let lazyloadImages = document.querySelectorAll(".lazy");    
     let lazyloadThrottleTimeout : number;
@@ -6,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function lazyload () {
       if(lazyloadThrottleTimeout) {
         clearTimeout(lazyloadThrottleTimeout);
-      }    
+      }          
       
       lazyloadThrottleTimeout = setTimeout(function() {
           lazyloadImages.forEach(function(element) {
@@ -22,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
             window.removeEventListener("orientationChange", lazyload);
           }
       }, 20);
+
+      mapSectionsToTopPositions();
     }
 
     const getTopOffsetOfElement = (element: Element) => {

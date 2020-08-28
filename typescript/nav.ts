@@ -18,9 +18,8 @@ export let isScrollingProgramatically = false;
 
 $(document).ready(() => {
   setUnderscore();
-
   setEventListeners();
-
+  $(".nav-link span").addClass("transition-linear-color");
 });
 
 const setEventListeners = (): void => {

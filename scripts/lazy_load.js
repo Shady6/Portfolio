@@ -1,3 +1,4 @@
+import { mapSectionsToTopPositions } from "./nav_link_change_on_section_change.js";
 document.addEventListener("DOMContentLoaded", function () {
     var lazyloadImages = document.querySelectorAll(".lazy");
     var lazyloadThrottleTimeout;
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.removeEventListener("orientationChange", lazyload);
             }
         }, 20);
+        mapSectionsToTopPositions();
     }
     var getTopOffsetOfElement = function (element) {
         var offsetTopOfElement = $(element).offset().top;

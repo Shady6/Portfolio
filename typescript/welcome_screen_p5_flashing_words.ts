@@ -68,7 +68,7 @@ let wordCoords: Point[] = new Array<Point>(3);
 const timeToStartFlashingWordset = [3850, 4350, 4850];
 
 function preload() {
-  font = loadFont("../assets/Arial.ttf");
+  font = loadFont("assets/Arial.ttf");
 }
 
 function windowResized() {

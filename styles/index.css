@@ -12,7 +12,7 @@ body{
     color: white;
 }
 
-a, a > .cv-svg{
+a:not(.nav-link), a > .cv-svg{
     color: rgb(255, 229, 211);
     transition: all .25s ease-out;
 }

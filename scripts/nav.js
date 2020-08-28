@@ -9,6 +9,7 @@ export var isScrollingProgramatically = false;
 $(document).ready(function () {
     setUnderscore();
     setEventListeners();
+    $(".nav-link span").addClass("transition-linear-color");
 });
 var setEventListeners = function () {
     $(".navbar-collapse").on("shown.bs.collapse", function () {

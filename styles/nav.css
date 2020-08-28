@@ -40,7 +40,11 @@ nav a:hover{
   }
 
   .nav-link span{
-      transition: color .3s linear;
+      
+  }
+
+  .transition-linear-color{
+    transition: color .3s linear;
   }
 
   .orange{

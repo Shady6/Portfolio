@@ -64,7 +64,7 @@ var handleScrollingUp = function () {
         }
     }
 };
-var mapSectionsToTopPositions = function () {
+export var mapSectionsToTopPositions = function () {
     $("section").each(function (i, section) {
         sections.push({
             top: $(section).position().top,
