@@ -3,7 +3,7 @@ import { mapSectionsToTopPositions } from "./nav_link_change_on_section_change.j
 document.addEventListener("DOMContentLoaded", function () {
   let lazyloadImages = document.querySelectorAll(".lazy");
   let lazyloadThrottleTimeout: number;
-  const paddingTopToLoad = window.innerHeight;
+  const paddingTopToLoad = window.innerHeight * 2;
 
   function lazyload() {
     if (lazyloadThrottleTimeout) {
