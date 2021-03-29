@@ -7,6 +7,10 @@
     margin-top: 10rem;
 }
 
+iframe{
+    border: none;
+}
+
 .icon{
     width: 100px;
     height: 100px;
