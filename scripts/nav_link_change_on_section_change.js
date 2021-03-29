@@ -6,7 +6,7 @@ var navLinkIdAffix = "-span";
 var activeLinkClass = "orange";
 var paddingToChangeLinkScrollingUp = (1 / 3) * getViewportHeight();
 var paddingToChangeLinkScrollingDown = getViewportHeight();
-var userScoll = true;
+var userScoll = false;
 var selectedSection = "";
 var navbarTogglerClosed = true;
 $(document).ready(function () {
@@ -21,7 +21,7 @@ var setEventListeners = function () {
     document.addEventListener("touchstart", function () {
         userScoll = true;
     });
-    $(".navbar-toggler").on("click", function () {
+    $(".navbar-toggler").on("click", function () {        
         navbarTogglerClosed = false;
     });
     $("#get-to-know-me-link").on("click", function (e) {
