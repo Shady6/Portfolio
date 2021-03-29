@@ -10,7 +10,7 @@ $(document).ready(function () {
 var setEventListeners = function () {
     $(".play-video-showcase").on("click", function (e) {
         e.stopPropagation();
-        handlePlayVideoClick(e.currentTarget.getAttribute("modal-to-show"));
+        handlePlayVideoClick(e.currentTarget.getAttribute("title"));
     });
     $(".show-magnified-gallery").on("click", function (e) {
         if (getViewportWidth() > mediumBreakpoint)
@@ -77,11 +77,11 @@ var getDisplayedPhotoIndex = function (nodes) {
 var showProperPhotoOnClose = function () {
     var childNodesOfPhotosContainer = document.querySelector(currentPhotoModalSelector + " .project-image-container").childNodes;
     var photoIndex = getDisplayedPhotoIndex(childNodesOfPhotosContainer);
-    var photosParentContainer = $("div[modal-to-show=\"" + currentPhotoModalSelector + "\"]");
+    var photosParentContainer = $("div[title=\"" + currentPhotoModalSelector + "\"]");
     setVisibilityOfPhotos(photosParentContainer, photoIndex);
 };
 var showMagnifiedGallery = function (e) {
-    var modalToShowSelector = e.currentTarget.getAttribute("modal-to-show");
+    var modalToShowSelector = e.currentTarget.getAttribute("title");
     currentPhotoModalSelector = modalToShowSelector;
     var photoIndex = getDisplayedPhotoIndex(e.currentTarget.childNodes);
     setVisibilityOfPhotos($(modalToShowSelector + " .project-image-container"), photoIndex);
